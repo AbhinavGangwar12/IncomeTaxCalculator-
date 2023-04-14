@@ -108,7 +108,7 @@ void getPersonDetails(){
 }
 void list_taxpayor(){
     if(newEntry==0)printf("No record found.\n");
-    else for(int i=0;i<newEntry;i++)printf("Name : %s\nTaxable Income : %.2f\nPayable Tax : %.2f",taxpayors[i].name,taxpayors[i].taxableIncome,taxpayors[i].tax);
+    else for(int i=0;i<newEntry;i++)printf("Name : %s\nTaxable Income : %.2f\nPayable Tax : %.2f\n\n",taxpayors[i].name,taxpayors[i].taxableIncome,taxpayors[i].tax);
 }
 void search(){
     printf("------------------------------------------------------------\n");
@@ -137,9 +137,12 @@ void edit(){
             scanf("%f",&taxpayors[i].totalIncome);
             printf("Enter new total deduction : ");
             scanf("%f",&taxpayors[i].totalDeduction);
+            printf("Updated Successfully!");
+            taxpayors[i].taxableIncome = taxpayors[i].totalIncome - taxpayors[i].totalDeduction;
+            return;
         }
-        else printf("\nNo record found !");
     }
+    printf("Entered name is invalid!");
     
 }
 void delete(){
@@ -157,6 +160,7 @@ void delete(){
             printf("Successfully Deleted !");
             return;
         }
+        else printf("No data found!");
     }
 }
 void intro(){
@@ -169,7 +173,7 @@ void intro(){
 }
 void display_choices(){
     printf("\n------------------------------------------------------------\n");
-    printf("\nChoose the number and press Enter for the operation\n");
+    printf("\nChoose the number and press Enter for the operation\n\n");
     printf("1 to Add new record and calculate tax\n2 to list all tax payors of this session\n3 to search\n4 to edit\n5 to delete record\n6 to exit");
 }
 int main(){
