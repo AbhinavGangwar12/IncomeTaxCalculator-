@@ -1,3 +1,4 @@
+// IncomeTaxCalculator
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
@@ -155,13 +156,13 @@ void delete(){
         if(strcmp(taxpayors[i].name,name)==0){
             for(int j =i;j<newEntry-1;j++){
                 taxpayors[j] = taxpayors[j+1];
-                newEntry--;
             }
+            newEntry--;
             printf("Successfully Deleted !");
             return;
         }
-        else printf("No data found!");
     }
+    printf("No data found!");
 }
 void intro(){
     printf("------------------------------------------------------------\n");
